@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/simple-sidebar.css">
+
+    <title> {% block title %} ACME {% endblock %} </title>
+    
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-dark  " id="sidebar-wrapper">
+          
+          <img class="rimg logo text-center  rounded-circle mb-5 mt-5" style="width: 156px; margin-left: 20%;" src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/51415505_1531498403553296_4723065090327183360_n.jpg?_nc_cat=100&_nc_ohc=2W2i7BDkPCAAX99AJEf&_nc_ht=scontent-cdg2-1.xx&oh=936ec03d91e16350cf87ec7fd02f5848&oe=5EF85EC7">
+          <div class="list-group list-group-flush">
+            <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action bg-dark text-white">Accueil</a>
+            <a href="{{ url_for('contact') }}" class="list-group-item list-group-item-action bg-dark text-white">Contact</a>
+            <a href="{{ url_for('upload_file') }}" class="list-group-item list-group-item-action bg-dark text-white">Upload file</a>
+            <a href="/pdf/" class="list-group-item list-group-item-action bg-dark text-white ">Générateur PDF</a>
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+    
+          <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+            <button class="btn btn-primary" id="menu-toggle">Menu</button>
+    
+            
+            </button>
+    
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{{ url_for('logout') }}">Se deconnecter <span class="sr-only">(current)</span></a>
+                </li>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
+         
+          {% block body %}                                            
+    
+    
+          {% endblock %}
+    
+      </div>
+    <!-- /#wrapper -->
+    
+      <!-- Bootstrap core JavaScript -->
+      <script
+                  src="https://code.jquery.com/jquery-3.4.1.js"
+                  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                  crossorigin="anonymous"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+      <!-- Menu Toggle Script -->
+      <script>
+        $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      </script>
+
+
+  
+    
+
+
+    
+
+</body>
+</html>
+
+
+

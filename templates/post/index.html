@@ -1,0 +1,27 @@
+{%extends 'layouts/default.html' %}
+{% block title %}  Tout les billet {% endblock %}
+
+{% block body %}
+
+<div class="container ">
+
+    <h1 class="text-center"> Tout les articles </h1>
+   
+    <h1>Blog  ({{ pluralize(posts|length, 'post')}} article)</h1>
+    <hr>
+    {% for post in posts %}
+    <article>
+        <h4> <a href="{{ url_for ('post_show',id=post.id) }}" > # {{post.id}} {{post.title}} </a></h4>
+        <p> {{post.content}} </p>
+        
+
+        
+    </article>
+    <hr>
+    <p>Vous etes connecter en tant que : {{ name }}</p>
+    {% endfor %}
+</div>
+
+    
+{% endblock %}
+

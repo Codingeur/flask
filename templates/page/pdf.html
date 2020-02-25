@@ -1,0 +1,39 @@
+{% extends 'layouts/default.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}  Accueil {% endblock %}
+
+
+{% block body %}
+
+<style>
+  
+      
+        .form-signin {
+          width: 100%;
+          max-width: 590px;
+          padding: 15px;
+          margin: 0 auto;
+          
+      }
+      
+      </style>
+
+
+<div class="container text-center">
+  <h1 class="text-center"> Générateur de devis</h1>
+  
+
+ <div class="contener">
+    <form class="form-signin well fadeIn first col-lg-6 " method="POST" action="{{url_for('pdf')}}">
+        
+        {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.prenom) }}
+            {{ wtf.form_field(form.nom) }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Générer</button>
+    </br>
+        
+
+    </form>
+</div>
+{% endblock %}
+
